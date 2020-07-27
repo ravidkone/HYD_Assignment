@@ -1,17 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Flight Booking" parallel="tests">
+<suite name="Flight Booking">
   <test name="ChromeBrowser Test">
-  	<parameter name="browser" value="chrome"></parameter>
   	<classes>
-  		<class name="com.runerfile.test.TestRunner"
+  		<class name="com.runnerfile.test.TestRunner"></class>
   	</classes>
-  </test> <!-- Test -->
+  </test>
   
- <!--   <test name="SafariBrowser Test">
+   <test name="SafariBrowser Test">
   	<parameter name="browser" value="safari"></parameter>
   	<classes>
-  		<class name="com.runerfile.test.TestRunner"
+  		<class name="com.runnerfile.test.TestRunner"/>
   	</classes>
-  </test> Test -->
-</suite> <!-- Suite -->
+  </test> 
+  
+</suite> Suite
+ -->

@@ -1,8 +1,9 @@
 Feature: Flight Booking
 
+@chrome
 Scenario: Visit the website and select fatest route
 
-Given user enter ibibo website url in browser
+Given user enter ibibo website url in "chrome"
 Then user enters the source "bengaluru" and destination "mumbai" details
 Then user selects the travel date 
 Then user click on search button

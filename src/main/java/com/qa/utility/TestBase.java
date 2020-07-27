@@ -9,15 +9,13 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.safari.SafariDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
 	public static Properties prop;
 	public FileInputStream fis;
-	public static WebDriver driver;
+	public  WebDriver driver;
 	public static CommomUtility oCommon=new CommomUtility();
 	public static Constants oConstant=new Constants();
 	
@@ -37,8 +35,8 @@ public class TestBase {
 		}
 	}
 	
-	public static void initilization() {
-		String browser=System.getProperty("browser");
+	public  void initilization(String browser) {
+
 		System.out.println("browser name is: "+browser);
 		if(browser.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();

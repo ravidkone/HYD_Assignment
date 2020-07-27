@@ -6,13 +6,13 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features="FeaturesFilesTest/flightbooking.feature",
+@CucumberOptions(features= "FeaturesFilesTest",
 				glue= {"com.stepDefinition.flightTravel"},
 				dryRun = false,
-				monochrome = true,
 				strict = true,
 				plugin = {"pretty","html:test_output"}
 				)
-public class TestRunner {
+
+public class TestRunner{
 
 }

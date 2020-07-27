@@ -1,6 +1,5 @@
 package com.travelpom.bookingpage;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,56 +19,61 @@ public class SearchPage extends TestBase{
 	WebElement selectDest;
 	@FindBy(id = "departureCalendar")
 	WebElement calender;
-	@FindBy(id = "fare_20200731")
+	
+	@FindBy(xpath = "//span[@class='DayPicker-NavButton DayPicker-NavButton--next']")
+	WebElement nextBtn;
+	@FindBy(id = "fare_20200827")
 	WebElement selectDate;
 	@FindBy(id = "gi_search_btn")
 	WebElement searchBtn;
 	@FindBy(xpath = "//span[text()='4pm - 9pm']" )
 	WebElement eveningSlot;
+	
+	@FindBy(xpath = "//span[text()='DURATION']")
+	WebElement sortDuration;
+	
 	@FindBy(xpath = "(//input[@value='BOOK'])[1]")
 	WebElement bookBtn;
 
-	public SearchPage() {
-	PageFactory.initElements(driver, this);
+	public SearchPage(WebDriver driver) {
+		
+		this.driver = driver;
+		PageFactory.initElements(this.driver, this);
+	
 	}
 	
 	public String getPageTitle() {
+		System.out.println(driver);
 		return driver.getTitle();
 		
 	}
 	
 	public void EnterLocation(String src, String dest) throws Exception {
 		System.out.println(src+dest);
-		driver.findElement(By.id("gosuggest_inputSrc")).sendKeys(src);
-		//sourceField.sendKeys(src);
-		//oCommon.waitForElementVisible(driver, selectSource, 3);
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//span[text()='Bengaluru, India']")).click();
-		//selectSource.click();
-		//oCommon.waitForElementVisible(driver, destField, 3);
-		driver.findElement(By.id("gosuggest_inputDest")).sendKeys(dest);
-	//	destField.sendKeys(dest);
-	//	oCommon.waitForElementVisible(driver, selectDest, 3);
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//span[text()='Mumbai, India']")).click();
-	//	selectDest.click();
+		sourceField.sendKeys(src);
+		oCommon.waitForElementVisible(driver, selectSource, 3);
+		selectSource.click();
+		oCommon.waitForElementVisible(driver, destField, 3);
+		destField.sendKeys(dest);
+		oCommon.waitForElementVisible(driver, selectDest, 3);
+		selectDest.click();
 	}
 	public void selectTravelDate() {
-		driver.findElement(By.id("departureCalendar")).click();
-		//calender.click();
-		driver.findElement(By.id("fare_20200731")).click();
-		//selectDate.click();
+		calender.click();
+		nextBtn.click();
+		selectDate.click();
 	}
 	public void searchFlights() {
-		driver.findElement(By.id("gi_search_btn")).click();
-		//searchBtn.click();
+		searchBtn.click();
 	}
-	public void eveningFlights() {
-		driver.findElement(By.xpath("//span[text()='4pm - 9pm']")).click();
-		//eveningSlot.click();
+	public void eveningFlights() throws Exception {
+		
+		eveningSlot.click();
+		oCommon.waitForElementVisible(driver, bookBtn, 3);
+		sortDuration.click();
 	}
-	public void bookFlight() {
-		driver.findElement(By.xpath("(//input[@value='BOOK'])[1]")).click();
-		//bookBtn.click();
+	public void bookFlight() throws Exception {
+		oCommon.waitForElementVisible(driver, bookBtn, 3);
+		bookBtn.click();
 	}
 }

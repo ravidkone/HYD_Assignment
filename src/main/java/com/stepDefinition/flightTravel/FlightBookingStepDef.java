@@ -1,8 +1,6 @@
 package com.stepDefinition.flightTravel;
 
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 
 import com.qa.utility.TestBase;
 import com.travelpom.bookingpage.SearchPage;
@@ -11,11 +9,13 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 public class FlightBookingStepDef extends TestBase{
-	SearchPage sp=new SearchPage();
+SearchPage sp;
 	
-	@Given("user enter ibibo website url in browser")
-	public void user_enter_ibibo_website_url_in_browser() {
-		TestBase.initilization();
+	
+	@Given("user enter ibibo website url in \"(.*)\"$")
+	public void user_enter_ibibo_website_url_in_browser(String browser) {
+		initilization(browser);
+		sp=new SearchPage(driver);
 		Assert.assertEquals(oConstant.pageTitle,sp.getPageTitle());
 	    System.out.println("Title Matched");
 	}
@@ -40,16 +40,15 @@ public class FlightBookingStepDef extends TestBase{
 	}
 
 	@Then("search details displayed")
-	public void search_details_displayed() {
+	public void search_details_displayed() throws Exception {
 		sp.eveningFlights();
 	    System.out.println("flight details displayed");
 	}
 
 	@Then("user click on book now button")
-	public void user_click_on_book_now_button() {
+	public void user_click_on_book_now_button() throws Exception {
 		sp.bookFlight();
 	 System.out.println("clicked on book now button");
 	 closeBrowser();
 	}
-
 }
