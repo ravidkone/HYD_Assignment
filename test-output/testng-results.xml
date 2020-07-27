@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="0" passed="0">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Flight Booking" duration-ms="19" started-at="2020-07-27T21:46:29 IST" finished-at="2020-07-27T21:46:29 IST">
+    <groups>
+    </groups>
+    <test name="Travel Test" duration-ms="19" started-at="2020-07-27T21:46:29 IST" finished-at="2020-07-27T21:46:29 IST">
+    </test> <!-- Travel Test -->
+  </suite> <!-- Flight Booking -->
+</testng-results>
